@@ -1,0 +1,19 @@
+version: "3.7"
+# to get in interactive shell to generate components
+# docker run, runs a command in a new container
+# docker run -it -v $(pwd):/app node:16-alpine bash
+#
+# to run commands in a running container
+# docker exec -it <container_id> sh
+# or
+# docker-compose exec app sh
+
+services:
+  app:
+    #stdin_open: true # docker run -i
+    #tty: true        # docker run -t
+    image: python:3
+    command: sh -c "pip install --no-cache-dir -r requirements.txt && python ./auto-script.py"
+    working_dir: /app
+    volumes:
+      - ./:/app

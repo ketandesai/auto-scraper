@@ -1,0 +1,1 @@
+docker run -it --rm --name my-auto-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3 python auto-script.py
